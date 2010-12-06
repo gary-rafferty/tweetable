@@ -25,13 +25,16 @@ module Tweetable
         #The following creates a sample URL of "URL/controller/show/id"
         #Obv this will only work if you are using a sample route
         #Nested routes will probably bomb out
-        @body="http://www.blahblahblah.ie/#{self.class.to_s.downcase.pluralize}/#{self.id}"
         
         @consumer_key = @twitter_config["consumer_key"]
         @consumer_secret = @twitter_config["consumer_secret"]
         @oauth_token = @twitter_config["oauth_token"]
         @oauth_token_secret = @twitter_config["oauth_token_secret"]
 
+        @url = @twitter_config["site_url"]
+
+        @body="#{@url}/#{self.class.to_s.downcase.pluralize}/#{self.id}"
+        
         Twitter.configure do |config|
           config.consumer_key = @consumer_key
           config.consumer_secret = @consumer_secret
