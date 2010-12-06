@@ -1,0 +1,29 @@
+Tweetable
+=========
+
+Tweetable is a quicky plugin to tweet a link to a new object.
+It is invoked after_save
+It will tweet something like "A new #{object} has been created at #{LINK_TO_SHOW_URL_FOR_OBJECT}"
+
+Note
+====
+
+This plugin depends on the 'twitter' gem.
+Pop this requirement into your Gemfile and have bundler hook you up.
+
+Usage
+=====
+
+Simple include tweetable within the model that you wish to tweet.
+
+class SomeModel < ActiveRecord::Base
+  tweetable
+
+  ...rest of model definition...
+
+end
+
+
+You will need to register a twitter app and place the details into the config/twitter.yml
+
+Copyright (c) 2010 Gary Rafferty, released under the MIT license
