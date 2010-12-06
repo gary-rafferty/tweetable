@@ -1,4 +1,4 @@
-config_file = File.new("#{Rails.root}/config/twitter.yml",'w') do |file|
+config_file = File.open("#{Rails.root}/config/twitter.yml",'w') do |file|
   file.write("consumer_key: \"YOUR_CONSUMER_KEY\"")
   file.write("consumer_secret: \"YOUR_CONSUMER_SECRET\"")
   file.write("oauth_token: \"YOUR_OAUTH_TOKEN\"")
